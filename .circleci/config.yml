@@ -1,9 +1,15 @@
 orbs:
   aws-s3: circleci/aws-s3@2.0.0
 version: 2.1
+
+workflows:
+  build:
+    jobs:
+      - build:
+          context: wasserraptor
+
 jobs:
   build:
-    context: wasserraptor
     docker:
       - image: 'cimg/python:3.6'
     steps:

@@ -3,11 +3,11 @@ orbs:
 version: 2.1
 jobs:
   build:
-    context: wasserraptor
     docker:
       - image: 'cimg/python:3.6'
     steps:
       - aws-s3/copy:
+          context: wasserraptor
           arguments: '--dryrun'
           from: .
           to: 's3://wasserraptorde'

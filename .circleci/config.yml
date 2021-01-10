@@ -8,7 +8,8 @@ jobs:
     steps:
       - aws-s3/copy:
           arguments: '--dryrun'
-          aws-access-key-id: $AWS_ACCESS_KEY_ID
-          aws-secret-access-key: $AWS_SECRET_ACCESS_KEY
+          environment:
+            aws-access-key-id: AWS_ACCESS_KEY_ID
+            aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           from: .
           to: 's3://wasserraptorde'

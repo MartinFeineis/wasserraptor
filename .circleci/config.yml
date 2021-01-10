@@ -6,10 +6,10 @@ jobs:
     docker:
       - image: 'cimg/python:3.6'
     steps:
+      environment:
+        aws-access-key-id: AWS_ACCESS_KEY_ID
+        aws-secret-access-key: AWS_SECRET_ACCESS_KEY
       - aws-s3/copy:
           arguments: '--dryrun'
-          environment:
-            aws-access-key-id: AWS_ACCESS_KEY_ID
-            aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           from: .
           to: 's3://wasserraptorde'
